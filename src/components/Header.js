@@ -3,6 +3,8 @@
 var React = require('react/addons');
 var LoremPixel = require('./lib/LoremPixel');
 
+var Navigation = require('./header/Navigation');
+
 //var Actions = require('actions/xxx')
 
 require('styles/Header.styl');
@@ -17,10 +19,11 @@ var Header = React.createClass({
             height={50}
             text="Logogogogogo"
             category="abstract" />
+          <Navigation />
         </div>
       );
   }
 });
 
-module.exports = Header; 
+module.exports = Header;
 

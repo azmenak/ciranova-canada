@@ -1,0 +1,22 @@
+@import "../colours"
+
+.Button
+  display inline-block
+
+  padding-top 20px
+  padding-left 20px
+  padding-right 20px
+  padding-bottom 20px
+
+  background-color primary-colour
+
+  box-shadow 0 -2px 0 rgba(0, 0, 0, 0.2) inset
+
+  cursor pointer
+
+  &:hover
+    background-color darken(primary-colour, 20%)
+  &:active
+    box-shadow none
+
+  transition background-color 0.2s ease-out

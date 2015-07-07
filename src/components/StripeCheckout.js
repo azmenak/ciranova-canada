@@ -26,6 +26,10 @@ var ReactStripeCheckout = React.createClass({
     // Hide the loading indicator
     hideLoadingDialog: React.PropTypes.func,
 
+    // Run this method when the scrupt fails to load. Will run if the internet
+    // connection is offline when attemting to load the script.
+    onScriptError: React.PropTypes.func,
+
     // =====================================================
     // Required by stripe
     // see Stripe docs for more info:
@@ -170,6 +174,8 @@ var ReactStripeCheckout = React.createClass({
   onScriptError: function() {
     this.hideLoadingDialog();
     ReactStripeCheckout.scriptDidError = true;
+    this.props.onScriptError &&
+      this.props.onScriptError.apply(this);
   },
   onClick: function() {
     if (ReactStripeCheckout.scriptDidError) {
@@ -185,14 +191,14 @@ var ReactStripeCheckout = React.createClass({
   renderStripeButton: function() {
     return (
       <button className="stripe-checkout-button" onClick={this.onClick}>
-        <span className="inner-text">{this.props.label}</span>
+        <span className="inner-text">{this.props.label || 'Pay With Card'}</span>
       </button>
     );
   },
 
   render: function () {
     return (
-      this.props.label ? this.renderStripeButton() : (
+      !this.props.children ? this.renderStripeButton() : (
         <span {...this.props} onClick={this.onClick}>
           {this.props.children}
         </span>

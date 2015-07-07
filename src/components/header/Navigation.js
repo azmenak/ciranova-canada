@@ -20,7 +20,7 @@ var Navigation = React.createClass({
 
   renderMenuItem: function(item) {
     return (
-      <li className="main-menu-item">
+      <li className="main-menu-item" key={_.kebabCase(item.title)}>
         {item.title}
       </li>
     );

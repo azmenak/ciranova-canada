@@ -12,9 +12,10 @@
   "dependencies": {
     "lodash": "^3.9.3",
     "normalize.css": "~3.0.3",
-    "react": "~0.12.2",
-    "react-router": "^0.11.6",
+    "react": "^0.13.3",
+    "react-router": "rackt/react-router",
     "react-script-loader": "0.0.1",
+    "react-forms": "prometheusresearch/react-forms",
     "reflux": "^0.2.7"
   },
   "devDependencies": {

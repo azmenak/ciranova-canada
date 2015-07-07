@@ -9,6 +9,7 @@ require('styles/ui/Button.styl');
 var Button = React.createClass({
 
   render: function () {
+
     return (
         <div className="Button">
           <span className="text">

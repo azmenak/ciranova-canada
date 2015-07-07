@@ -1,18 +1,23 @@
 'use strict';
 
 var CiranovaApp = require('./CiranovaApp');
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+
+var React = require('react/addons');
+var ReactRouter = require('react-router');
+var { Router, Route } = ReactRouter;
+var BrowserHistory = require('react-router/lib/BrowserHistory');
+
+var HomeOwners = require('./HomeOwners');
+var Home = require('./Home')
 
 var content = document.getElementById('content');
+var routes = {
+  path: '/',
+  component: CiranovaApp,
+  childRoutes: [
+    {path: 'home-owners', component: HomeOwners}
+  ]
+};
 
-var Routes = (
-  <Route handler={CiranovaApp}>
-    <Route name="/" handler={CiranovaApp}/>
-  </Route>
-);
-
-Router.run(Routes, Router.HistoryLocation, function (Handler) {
-  React.render(<Handler/>, content);
-});
+// React.render(<Router history={new BrowserHistory()} children={routes} /> , content);
+React.render(<CiranovaApp />, content);

@@ -1,8 +1,14 @@
 'use strict';
 
 var React = require('react/addons');
+var Router = require('react-router');
+
+var {
+  Link
+} = Router;
 
 var Header = require('./Header');
+var Routes = require('./Routes')
 var Home = require('./Home');
 
 // CSS
@@ -14,7 +20,7 @@ var CiranovaApp = React.createClass({
     return (
       <div className='main'>
         <Header />
-        <Home />
+        {this.props.children || <Home />}
       </div>
     );
   }
